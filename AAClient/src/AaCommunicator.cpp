@@ -18,9 +18,9 @@
 #include <unistd.h>
 #include <vector>
 
-#define CRT_FILE "headunit.crt"
-#define PRIVKEY_FILE "headunit.key"
-#define DHPARAM_FILE "dhparam.pem"
+#define CRT_FILE "/root/AA/AACS/build/AAClient/headunit.crt"
+#define PRIVKEY_FILE "/root/AA/AACS/build/AAClient/headunit.key"
+#define DHPARAM_FILE "/root/AA/AACS/build/AAClient/dhparam.pem"
 
 using namespace std;
 
