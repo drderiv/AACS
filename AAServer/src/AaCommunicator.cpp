@@ -27,9 +27,9 @@
 #include <pcap/pcap.h>
 #include <stdexcept>
 
-#define CRT_FILE "android_auto.crt"
-#define PRIVKEY_FILE "android_auto.key"
-#define DHPARAM_FILE "dhparam.pem"
+#define CRT_FILE "/root/AA/AACS/build/AAServer/android_auto.crt"
+#define PRIVKEY_FILE "/root/AA/AACS/build/AAServer/android_auto.key"
+#define DHPARAM_FILE "/root/AA/AACS/build/AAServer/dhparam.pem"
 
 using namespace std;
 using namespace boost::filesystem;
