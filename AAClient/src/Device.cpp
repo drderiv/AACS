@@ -50,8 +50,8 @@ void Device::switchToAOA() {
   // cout << stringDescriptor[i] << " ";
   //}
   uint8_t version[2];
-  if (libusb_control_transfer(device.get(), 0xc0, 51, 0, 0, version, 2, 1000) !=
-      2)
+  int versionByteCount = libusb_control_transfer(device.get(), 0xc0, 51, 0, 0, version, 2, 1000);
+  if (versionByteCount != 2 || !((version[0] == 1 || version[0] == 2) && version[1] == 0))
     throw runtime_error("libusb_control_transfer failed: not AOA device? (51)");
   vector<string> strings = {"Android", "Android Auto",      "Android Auto",
                             "2.0.1",   "http://myurl.com/", "TAGS Serial 01"};
