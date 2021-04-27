@@ -34,7 +34,7 @@ Follow these steps to get AACS and Anbox running on Odroid N2:
 1. mkdir snowmix && cd snowmix
 1. wget https://deac-riga.dl.sourceforge.net/project/snowmix/Snowmix-0.5.1.1.tar.gz && tar -zxvf Snowmix-0.5.1.1.tar.gz && cd Snowmix-0.5.1.1
 1. aclocal && autoconf && libtoolize --force && automake --add-missing && ./configure --prefix=/usr --libdir=/usr/lib
-1. make -j 4 && make install
+1. make -j 2 && make install
 1. cd ../..
 1. mkdir AA && cd AA
 1. git clone --recurse-submodules https://github.com/tomasz-grobelny/AACS.git && cd AACS && mkdir build && cd build && cmake .. && make -j 2 && cd ../..
