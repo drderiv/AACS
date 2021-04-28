@@ -6,7 +6,7 @@ DEV="$(find /dev/mmcblk? | tail -n 1)"
 DIR="/boot/$DT"
 make clean
 date -Iseconds
-make -j 4
+make -j 2
 date -Iseconds
 make modules_install
 make headers_install INSTALL_HDR_PATH=/usr
