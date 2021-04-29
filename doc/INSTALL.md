@@ -17,7 +17,7 @@ Follow these steps to get AACS and Anbox running on Odroid N2:
 1. Find out the IP address of your Odroid N2 (eg. from your router or using 'nmap -sT 192.168.0.* -p 22 -P0|grep -B 4 open|grep "scan report"') and ssh to it (user: root, password: odroid)
 1. echo -en "d\n2\nn\np\n2\n264192\n33466367\np\nw\n"|fdisk /dev/mmcblk1 (Resize image somewhat, just enough to complete following instructions.)
 1. resize2fs /dev/mmcblk1p2
-1. swapoff -a && dd if=/dev/zero of=/swapfile bs=1M count=2048 conv=notrunc && chmod 0600 /swapfile && mkswap /swapfile && swapon /swapfile && sed -i '0,/\n\n/s//\n\nswapon \/swapfile\n/' /etc/rc.local
+1. swapoff -a && dd if=/dev/zero of=/swapfile bs=1M count=2048 conv=notrunc && chmod 0600 /swapfile && mkswap /swapfile && swapon /swapfile && cat /etc/rc.local | sed -z 's#\n\n#\n\nswapon /swapfile\n#' | tee /etc/rc.local
 1. apt update && apt -yq upgrade
 1. apt -yq install git u-boot-tools build-essential libncurses5-dev bison flex bc libboost1.67-all-dev libssl-dev libprotobuf-dev protobuf-compiler libgstreamer1.0-dev libconfig-dev libusb-1.0-0-dev libegl-dev libgles2-mesa-dev libglm-dev
 1. apt -yq remove libsdl2-2.0-0 python3-distupgrade && rm -f /etc/pulse/default.pa && DEBIAN_FRONTEND=noninteractive apt -yq install libsdl2-dev libsdl2-image-dev liblxc-dev libproperties-cpp-dev libsystemd-dev libcap-dev libgmock-dev python3-distupgrade ubuntu-release-upgrader-core ubuntu-desktop-minimal libxtst-dev adb gpsd gpsd-clients lightdm gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad gstreamer1.0-libav tigervnc-scraping-server lxc-utils xfce4 libdw-dev mc clangd clang gpiod libfmt-dev libpcap-dev google-mock libbfd-dev libdwarf-dev
