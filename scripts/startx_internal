@@ -35,7 +35,7 @@ while true; do
 done
 ) > $LOGDIR/osmand_launch.log 2>&1 &
 
-exit
+#exit
 (
 cd $SCRIPTSDIR/../build/AAServer/
 date
