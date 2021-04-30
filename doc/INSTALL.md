@@ -28,7 +28,7 @@ Follow these steps to get AACS and Anbox running on Odroid N2:
 1. chmod +x ./compile_kernel.sh && make olddefconfig && ./compile_kernel.sh
 1. reboot
 1. git clone https://github.com/libusbgx/libusbgx.git && cd libusbgx && autoreconf -i && ./configure --prefix=/usr && make && make install && cd ..
-1. git clone https://github.com/anbox/anbox.git && cd anbox && git submodule init && git submodule update && mkdir build && cd build && cmake .. && make -i -j 2 && make -i install && cd ../..
+1. git clone https://github.com/anbox/anbox.git && cd anbox && git submodule init && git submodule update && sed -i 's#macros#macros -Wno-error#' CMakeLists.txt && mkdir build && cd build && cmake .. && make -i -j 2 && make -i install && cd ../..
 1. wget http://anbox.postmarketos.org/android-7.1.2_r39-anbox_arm64-userdebug.img -O android.img
 1. apt install -yq libsdl1.2-dev libcairo2-dev libpango1.0-dev tcl8.6-dev
 1. mkdir snowmix && cd snowmix
