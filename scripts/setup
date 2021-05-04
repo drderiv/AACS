@@ -4,7 +4,7 @@ ID=`whoami`;
 SCRIPTSDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 HOMEDIR=`eval echo ~$ID`;
 if [[ "$rcLocalAlreadyUpdated" == "0" ]]; then
-    sed -i "2i$SCRIPTSDIR/start >> $HOMEDIR/logs/rc.local 2>&1 &" /etc/rc.local
+    sed -i "4i$SCRIPTSDIR/start >> $HOMEDIR/logs/rc.local 2>&1 &" /etc/rc.local
 fi
 
 cat $SCRIPTSDIR/autologin.conf | sed "s/#USER#/$ID/" > /etc/lightdm/lightdm.conf.d/autologin.conf
