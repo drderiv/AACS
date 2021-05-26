@@ -5249,6 +5249,10 @@ CONFIG_RTC_DRV_RX8581=m
 CONFIG_RTC_DRV_S5M=y
 # CONFIG_RTC_DRV_SD3078 is not set
 
+# N2-specific additions (from https://forum.odroid.com/viewtopic.php?p=275058#p275058)
+CONFIG_AMLOGIC_I2C_MASTER=y
+CONFIG_RTC_DRV_PCF8563=y
+
 #
 # SPI RTC drivers
 #
